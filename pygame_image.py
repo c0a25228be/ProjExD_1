@@ -21,16 +21,20 @@ def main():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed()
-        kk_rct.move_ip(-1, 0)
+
+        move_x = -1
+        move_y = 0
 
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0, -1))
+            move_y = -1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, +1))
+            move_y = +1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1, 0))
+            move_x = -2
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((+2, 0))
+            move_x = +1
+
+        kk_rct.move_ip(move_x, move_y)
 
         x=tmr%3200
         screen.blit(bg_img, [-x, 0]) #背景を左にずらして描画
