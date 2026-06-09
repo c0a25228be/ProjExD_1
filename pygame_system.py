@@ -15,7 +15,7 @@ def main():
     pg.draw.circle(enn, (255, 0, 0), (10, 10), 10)
     enn.set_colorkey((0, 0, 0))
 
-    tmr = 0
+    tmr = 0 # タイマー用の変数
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
@@ -26,7 +26,7 @@ def main():
         screen.blit(enn, [100, 400])
         pg.display.update()
         tmr += 1        
-        clock.tick(1)
+        clock.tick(10) # フレームレートを管理
 
 
 if __name__ == "__main__":
